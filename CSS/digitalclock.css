@@ -1,0 +1,12 @@
+
+    #digitalClock {
+        /* position: absolute; */
+        width: 100%;
+        text-align: center;
+        font-size: 4vw;
+        color: rgb(17, 16, 16);
+      }
+      .black-dot {
+        color: black;
+      }
+    

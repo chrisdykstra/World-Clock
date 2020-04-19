@@ -1,0 +1,24 @@
+{
+  "name": "WORLD_CLOCK",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisdykstra/World-Clock.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisdykstra/World-Clock/issues"
+  },
+  "homepage": "https://github.com/chrisdykstra/World-Clock#readme",
+  "dependencies": {
+    "electron": "^8.2.3"
+  }
+}
