@@ -1,5 +1,5 @@
 
-const request = require('request');
+
 
 function retrieveDropDownCities() {
 
@@ -25,6 +25,12 @@ function showCitiesInDropdownList(yoshi) {
         cityList.innerHTML = yoshi[i];
         // <option value="Africa/Bissau">Africa/Bissau</option>
         citiesDropDown.appendChild(cityList);
+        ///////////////////////////////////////////////////////////////////
+
+        // let cityList = document.createElement("a");
+        // cityList.setAttribute('value', yoshi[i]);
+        // cityList.innerHTML = yoshi[i];
+        // citiesDropDown.appendChild(cityList);
 
     }
 }
@@ -50,8 +56,13 @@ function getCityInformation(cityName) {
         let endingIndex = timeWithoutDate.indexOf("."); //As long as the formatting from the server doesn't change, this will remain.
         //Now create a substring within this string to separate out the hours, minutes, and seconds.
         let digitalTiime = timeWithoutDate.substring(beginningIndex, endingIndex);
-        let timeDenominations = digitalTiime.split(":"); //separates out hours : minutes : seconds.
-        startTime(timeDenominations);
+        timeDenomination = digitalTiime.split(":"); //separates out hours : minutes : seconds.
+        h = Number (timeDenomination[0]);
+        m = Number (timeDenomination[1]);
+        s = Number (timeDenomination[2]);
+
+        
+        startTime();
     })
 
 }

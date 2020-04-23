@@ -9,22 +9,41 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/analogclock.css">
     <link rel="stylesheet" type="text/css" href="css/digitalclock.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/dropdown.css">
+
 </head>
 
-<h5>
-    <center>
-        <div>World Clock</div>
-    </center>
-</h5>
-<br><br>
+
 
 <body>
     <div class="container">
         <div class="row">
             <div class="col">
-                <div id="dropdown" div class="dropdown-content"><label>City</label>
-                    <select id="citiesdropdown">
-                    </select>
+                <h5>
+                    <center>
+                        <div class="title">World Clock</div>
+                    </center>
+                </h5>
+                <br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <!-- <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="letsseewhathappens" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown button
+                    </button>
+                    <div class="dropdown-menu" id="citiesdropdown">
+                      <a class="dropdown-item" href="#">Action</a>
+                    </div>
+                  </div> -->
+                <div id="dropdown" class="dropdown-content"><label>City</label>
+                    <div class="select">
+                        <select id="citiesdropdown">
+                            <option value="" disabled selected>Select a City</option>
+                        </select>
+                    </div>
                     <button class="btn btn-secondary" onclick="setTimeOfCity()">Get Time</button>
                 </div>
             </div>
@@ -67,24 +86,41 @@
 
         </div>
     </div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
+    <!--  -->
+
+
+    <script>
+        window.$ = window.jQuery = require('jquery');
+    </script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.3.3/cjs/popper.min.js></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src='digitalclock.js'></script>
-    <script src='analogclock.js'></script>
-    <script src='api-cities.js'></script>
+        crossorigin="anonymous"></script> -->
+    <script src='javascript/global.js'></script>
+    <script src='javascript/digitalclock.js'></script>
+    <script src='javascript/analogclock.js'></script>
+    <script src='javascript/api-cities.js'></script>
 
     <script>
-        let timeDenomination = getLocalTime();
-
-        startTime(timeDenomination);
+        getLocalTime();
+        setInterval(startTime, 1000);
     </script>
 </body>
 
