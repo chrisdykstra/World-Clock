@@ -4,3 +4,4 @@ let timeDenomination;
 let h;
 let m;
 let s;
+let meridian = "";

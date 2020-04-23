@@ -35,8 +35,9 @@
 function startTime() {
 
     incrementTime();
-    document.getElementById('digitalClock').innerHTML =
-        h + ":" + m + ":" + s;
+    let pseudoHour = h > 12 ? h - 12 : h; //doesn't change back end 24 hour clock but displays as 12 hour on front end
+    let time = pseudoHour + ":" + checkTime(m) + ":" + checkTime(s) + " " + meridian;
+    document.getElementById('digitalClock').textContent = time;
 }
 
 function incrementTime() {
@@ -54,8 +55,14 @@ function incrementTime() {
         m = 0;
         h = h + 1;
     }
+
+    meridian = h > 12 ? "PM" : "AM";
 }
 
+function checkTime(i){
+    if (i < 10) {i = '0' + i};
+    return i;
+}
 
 function getLocalTime() {
     let today = new Date();
@@ -64,7 +71,4 @@ function getLocalTime() {
     s = today.getSeconds();
 }
 
-function checkTime(number) {
-    if (number < 10) { number = "0" + number };  // add zero in front of numbers < 10
-    return number;         //will need this function to fix minutes and seconds
-}
+
