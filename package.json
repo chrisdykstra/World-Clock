@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "fixSqlite": "./node_modules/.bin/electron-rebuild -w sqlite3 -p"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,9 @@
   "homepage": "https://github.com/chrisdykstra/World-Clock#readme",
   "dependencies": {
     "electron": "^8.1.1",
+    "electron-rebuild": "^1.10.1",
     "jquery": "^3.5.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "sqlite3": "^4.1.1"
   }
 }
