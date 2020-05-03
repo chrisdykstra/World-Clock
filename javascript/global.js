@@ -9,12 +9,11 @@ let m;
 let s;
 let meridian = "";
 let expectedListOfTables = ["cities"];
-let createTableQuery = "CREATE TABLE cities (id INTEGER PRIMARY KEY AUTOINCREMENT, city TEXT, country TEXT)";
 
 db.serialize(() => {
     dropTable();
     createTable();
-    insertData();
+    insertDataAll();
     selectData();
 });
 
@@ -28,7 +27,7 @@ function dropTable() {
 }
 
 function createTable() {
-
+    let createTableQuery = "CREATE TABLE cities (id INTEGER PRIMARY KEY AUTOINCREMENT, city TEXT, country TEXT, continent TEXT)";
     db.run(createTableQuery, function (error) {
         if (error) {
             console.log(error);
@@ -37,24 +36,51 @@ function createTable() {
     });
 }
 
-function insertData() {
+function insertDataAll() {
 
-    let addCitiesToDB = "INSERT INTO cities (city, country) VALUES ('New York', 'USA')";
+    let addCitiesToDB = `INSERT INTO cities (city, country, continent) VALUES ( 'New York' , 'USA' , 'America' ),
+    ( 'London' , 'England' , 'Europe' ),
+    ( 'Paris' , 'France' , 'Europe' ),
+    ( 'Melbourne' , 'Australia' , 'Australia' ),
+    ( 'Dubai' , 'UAE' , 'Asia' ),
+    ( 'Moscow' , 'Russia' , 'Europe' )`;
 
     db.run(addCitiesToDB, (err) => {
         if (err) {
-            console.log("Unable to Insert Data");
+            console.log(err);
+        }
+    });
+}
+
+function insertData(insertedCity, insertedCountry) {
+
+    let addCitiesToDB = `INSERT INTO cities (city, country, continent) VALUES ( '${insertedCity}' , '${insertedCountry}' )`;
+
+    db.run(addCitiesToDB, (err) => {
+        if (err) {
+            console.log(err);
         }
     });
 }
 
 function selectData() {
 
-    db.all("SELECT * from cities", (error, table) => {
-        if (error) {
+    db.all("SELECT * from cities", (error, rows) => {
+        if (error)
             console.log("Unable to Get Data");
-        } else {
-            console.log(table);
-        }
+        else
+            showCitiesInDropdownList(rows);
+
+    });
+}
+
+function getTimeForSpecificCity() {
+
+    db.all("SELECT city FROM cities WHERE city = *", (error, rows) => {
+
+        let url = "http://worldtimeapi.org/api/timezone";
+
+        request(url, function (error, response, body) {
+        });
     });
 }

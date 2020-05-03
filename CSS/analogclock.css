@@ -1,166 +1,166 @@
 body {
-    color: white;
-   
-  }
-  #clock {
-    position: relative;
-    height: 200px;
-    width: 200px;
-    /* position: absolute; */
-    top: 50%;
-    left: 50%;
-    margin: -100px;
-  }
-  #clock ul {
-    height: 400px;
-    width: 400px;
-    border-radius: 50%;
-  }
-  #clock ul .hour {
-    height: 190px;
-    font-size: 10px;
-    position: absolute;
-    top: 5px;
-    left: 97.5px;
-  }
-  #clock ul .hour span {
-    display: inline-block;
-  }
-  #clock #hour {
-    height: 100%;
-    width: 4px;
-    position: absolute;
-    left: 50%;
-    margin-left: -2px;
-    top: 0;
-  }
-  #clock #hour:after {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 30%;
-    width: 100%;
-    background: white;
-    bottom: 50%;
-  }
-  #clock #minute {
-    height: 100%;
-    width: 2px;
-    position: absolute;
-    left: 50%;
-    margin-left: -1px;
-    top: 0;
-  }
-  #clock #minute:after {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 35%;
-    width: 100%;
-    background: white;
-    bottom: 50%;
-  }
-  #clock #second {
-    height: 100%;
-    width: 1px;
-    position: absolute;
-    left: 50%;
-    top: 0;
-  }
-  #clock #second:after {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 40%;
-    width: 100%;
-    background: white;
-    bottom: 50%;
-  }
-  /* -------------------------------------------------------------------------------
-        I don't believe anything below this line needs to change 4/8/20
-  --------------------------------------------------------------------------------*/
-  .hr12 {
-    transform: rotate(360deg);
-  }
-  .hr12 span {
-    transform: rotate(-360deg);
-    font-size: large;
-  
-  }
-  .hr11 {
-    transform: rotate(330deg);
-  }
-  .hr11 span {
-    transform: rotate(-330deg);
-    font-size: large;
-  }
-  .hr10 {
-    transform: rotate(300deg);
-  }
-  .hr10 span {
-    transform: rotate(-300deg);
-    font-size: large;
-  }
-  .hr9 {
-    transform: rotate(270deg);
-  }
-  .hr9 span {
-    transform: rotate(-270deg);
-    font-size: large;
-  }
-  .hr8 {
-    transform: rotate(240deg);
-  }
-  .hr8 span {
-    transform: rotate(-240deg);
-    font-size: large;
-  }
-  .hr7 {
-    transform: rotate(210deg);
-  }
-  .hr7 span {
-    transform: rotate(-210deg);
-    font-size: large;
-  }
-  .hr6 {
-    transform: rotate(180deg);
-  }
-  .hr6 span {
-    transform: rotate(-180deg);
-    font-size: large;
-  }
-  .hr5 {
-    transform: rotate(150deg);
-  }
-  .hr5 span {
-    transform: rotate(-150deg);
-    font-size: large;
-  }
-  .hr4 {
-    transform: rotate(120deg);
-  }
-  .hr4 span {
-    transform: rotate(-120deg);
-    font-size: large;
-  }
-  .hr3 {
-    transform: rotate(90deg);
-  }
-  .hr3 span {
-    transform: rotate(-90deg);
-    font-size: large;
-  }
-  .hr2 {
-    transform: rotate(60deg);
-  }
-  .hr2 span {
-    transform: rotate(-60deg);
-    font-size: large;
-  }
-  .hr1 {
-    transform: rotate(30deg);
-  }
-  .hr1 span {
-    transform: rotate(-30deg);
-    font-size: large;
-  }
+  color: white;
+ 
+}
+#clock {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  margin: -100px;
+}
+#clock ul {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+}
+#clock ul .hour {
+  height: 190px;
+  font-size: 10px;
+  position: absolute;
+  top: 5px;
+  left: 97.5px;
+}
+#clock ul .hour span {
+  display: inline-block;
+}
+#clock #hour {
+  height: 100%;
+  width: 4px;
+  position: absolute;
+  left: 50%;
+  margin-left: -2px;
+  top: 0;
+}
+#clock #hour:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 30%;
+  width: 100%;
+  background: white;
+  bottom: 50%;
+}
+#clock #minute {
+  height: 100%;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  top: 0;
+}
+#clock #minute:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 35%;
+  width: 100%;
+  background: white;
+  bottom: 50%;
+}
+#clock #second {
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+#clock #second:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 40%;
+  width: 100%;
+  background: white;
+  bottom: 50%;
+}
+/* -------------------------------------------------------------------------------
+      I don't believe anything below this line needs to change 4/8/20
+--------------------------------------------------------------------------------*/
+.hr12 {
+  transform: rotate(360deg);
+}
+.hr12 span {
+  transform: rotate(-360deg);
+  font-size: large;
+
+}
+.hr11 {
+  transform: rotate(330deg);
+}
+.hr11 span {
+  transform: rotate(-330deg);
+  font-size: large;
+}
+.hr10 {
+  transform: rotate(300deg);
+}
+.hr10 span {
+  transform: rotate(-300deg);
+  font-size: large;
+}
+.hr9 {
+  transform: rotate(270deg);
+}
+.hr9 span {
+  transform: rotate(-270deg);
+  font-size: large;
+}
+.hr8 {
+  transform: rotate(240deg);
+}
+.hr8 span {
+  transform: rotate(-240deg);
+  font-size: large;
+}
+.hr7 {
+  transform: rotate(210deg);
+}
+.hr7 span {
+  transform: rotate(-210deg);
+  font-size: large;
+}
+.hr6 {
+  transform: rotate(180deg);
+}
+.hr6 span {
+  transform: rotate(-180deg);
+  font-size: large;
+}
+.hr5 {
+  transform: rotate(150deg);
+}
+.hr5 span {
+  transform: rotate(-150deg);
+  font-size: large;
+}
+.hr4 {
+  transform: rotate(120deg);
+}
+.hr4 span {
+  transform: rotate(-120deg);
+  font-size: large;
+}
+.hr3 {
+  transform: rotate(90deg);
+}
+.hr3 span {
+  transform: rotate(-90deg);
+  font-size: large;
+}
+.hr2 {
+  transform: rotate(60deg);
+}
+.hr2 span {
+  transform: rotate(-60deg);
+  font-size: large;
+}
+.hr1 {
+  transform: rotate(30deg);
+}
+.hr1 span {
+  transform: rotate(-30deg);
+  font-size: large;
+}

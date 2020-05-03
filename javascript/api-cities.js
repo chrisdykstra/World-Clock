@@ -1,53 +1,47 @@
 
+// function retrieveDropDownCities() {
 
-
-function retrieveDropDownCities() {
-
-    let url = "http://worldtimeapi.org/api/timezone";
-
-    request(url, function (error, response, body) {
-        let yoshi = JSON.parse(body);
-        showCitiesInDropdownList(yoshi);
-    });
-}
-retrieveDropDownCities();
+//     let url = "http://worldtimeapi.org/api/timezone";
+   
+//     request(url, function (error, response, body) {
+//         let yoshi = JSON.parse(body);
+//         showCitiesInDropdownList(yoshi);
+//     });
+// }
+// retrieveDropDownCities();
 // ----------------------------------------------
-function showCitiesInDropdownList(yoshi) {
+function showCitiesInDropdownList(rowsFromDB) {
 
     let citiesDropDown = document.getElementById("citiesdropdown");
 
-    for (let i = 0; i < yoshi.length; i++) {
+    for (let i = 0; i < rowsFromDB.length; i++) {
 
         let cityList = document.createElement("option");  // createElement only takes in tag names
-        // <option></option>
-        cityList.setAttribute('value', yoshi[i]);
-        // <option value="Africa/Bissau"></option>
-        cityList.innerHTML = yoshi[i];
-        // <option value="Africa/Bissau">Africa/Bissau</option>
+        cityList.setAttribute('value' , rowsFromDB[i].continent);
+        cityList.textContent = rowsFromDB[i].country +' : ' + rowsFromDB[i].city;
         citiesDropDown.appendChild(cityList);
-        ///////////////////////////////////////////////////////////////////
-
-        // let cityList = document.createElement("a");
-        // cityList.setAttribute('value', yoshi[i]);
-        // cityList.innerHTML = yoshi[i];
-        // citiesDropDown.appendChild(cityList);
-
     }
 }
+
 //--------------------------------------------------
 function setTimeOfCity() {
 
     let citiesDropDown = document.getElementById("citiesdropdown");
-    let optionIndex = citiesDropDown.selectedIndex;
-    let cityName = citiesDropDown.options[optionIndex].value;
-    getCityInformation(cityName);
+    let option = citiesDropDown.options[citiesDropDown.selectedIndex];
+    let textContent = option.textContent;
+    let startIndex = textContent.indexOf(":") + 2;
+    let city = textContent.slice(startIndex);
+    let continent = option.getAttribute('value');
+    let continentAndCity = continent + '/' + city;
+    getCityInformation(continentAndCity);
 }
 
-function getCityInformation(cityName) {
+function getCityInformation(continentAndCity) {
 
-    let url = "http://worldtimeapi.org/api/timezone/" + cityName + ".txt";
-
+    let url = "http://worldtimeapi.org/api/timezone/" + continentAndCity + ".txt";
+        console.log(url);
     request(url, function (error, response, body) {
+        console.log(body);
         //First split the information into lines by \n. New Line.
         let timeInfo = body.split('\n');
         let timeWithoutDate = timeInfo[2];
@@ -55,7 +49,7 @@ function getCityInformation(cityName) {
         let beginningIndex = timeWithoutDate.indexOf("T") + 1; //The beginning index is not included in the printed results.
         let endingIndex = timeWithoutDate.indexOf("."); //As long as the formatting from the server doesn't change, this will remain.
         //Now create a substring within this string to separate out the hours, minutes, and seconds.
-        let digitalTiime = timeWithoutDate.substring(beginningIndex, endingIndex);
+        let digitalTiime = timeWithoutDate.slice(beginningIndex, endingIndex);
         timeDenomination = digitalTiime.split(":"); //separates out hours : minutes : seconds.
         h = Number (timeDenomination[0]);
         m = Number (timeDenomination[1]);
