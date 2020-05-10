@@ -36,6 +36,9 @@ function startTime() {
 
     incrementTime();
     let pseudoHour = h > 12 ? h - 12 : h; //doesn't change back end 24 hour clock but displays as 12 hour on front end
+    if (h == 00){
+        h = 12;
+    }
     let time = pseudoHour + ":" + checkTime(m) + ":" + checkTime(s) + " " + meridian;
     document.getElementById('digitalClock').textContent = time;
 }
