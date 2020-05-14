@@ -1,16 +1,10 @@
 
-// function retrieveDropDownCities() {
+function setInformationOfCity() {
+    setTimeOfCity();
+    setWeatherDataFromAPI();
+}
 
-//     let url = "http://worldtimeapi.org/api/timezone";
-   
-//     request(url, function (error, response, body) {
-//         let yoshi = JSON.parse(body);
-//         showCitiesInDropdownList(yoshi);
-//     });
-// }
-// retrieveDropDownCities();
-// ----------------------------------------------
-function showCitiesInDropdownList(rowsFromDB) {
+function showCitiesInDropdownList() {
 
     let citiesDropDown = document.getElementById("citiesdropdown");
 

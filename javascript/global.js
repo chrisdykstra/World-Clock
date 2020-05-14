@@ -9,6 +9,7 @@ let m;
 let s;
 let meridian = "";
 let expectedListOfTables = ["cities"];
+let rowsFromDB = [];
 
 db.serialize(() => {
     dropTable();
@@ -27,7 +28,7 @@ function dropTable() {
 }
 
 function createTable() {
-    let createTableQuery = "CREATE TABLE cities (id INTEGER PRIMARY KEY AUTOINCREMENT, city TEXT, country TEXT, continent TEXT)";
+    let createTableQuery = "CREATE TABLE cities (id INTEGER PRIMARY KEY AUTOINCREMENT, city TEXT, country TEXT, continent TEXT, countrycode TEXT)";
     db.run(createTableQuery, function (error) {
         if (error) {
             console.log(error);
@@ -38,12 +39,12 @@ function createTable() {
 
 function insertDataAll() {
 
-    let addCitiesToDB = `INSERT INTO cities (city, country, continent) VALUES ( 'New York' , 'USA' , 'America' ),
-    ( 'London' , 'England' , 'Europe' ),
-    ( 'Paris' , 'France' , 'Europe' ),
-    ( 'Melbourne' , 'Australia' , 'Australia' ),
-    ( 'Dubai' , 'UAE' , 'Asia' ),
-    ( 'Moscow' , 'Russia' , 'Europe' )`;
+    let addCitiesToDB = `INSERT INTO cities (city, country, continent, countrycode) VALUES ( 'New York' , 'USA' , 'America' , 'US' ),
+    ( 'London' , 'England' , 'Europe' , 'GB' ),
+    ( 'Paris' , 'France' , 'Europe' , 'FR' ),
+    ( 'Melbourne' , 'Australia' , 'Australia' , 'AU' ),
+    ( 'Dubai' , 'UAE' , 'Asia' , 'AE' ),
+    ( 'Moscow' , 'Russia' , 'Europe' , 'RU' )`;
 
     db.run(addCitiesToDB, (err) => {
         if (err) {
@@ -54,7 +55,8 @@ function insertDataAll() {
 
 function insertData(insertedCity, insertedCountry) {
 
-    let addCitiesToDB = `INSERT INTO cities (city, country, continent) VALUES ( '${insertedCity}' , '${insertedCountry}' )`;
+    let addCitiesToDB = `INSERT INTO cities (city, country, continent, countrycode) 
+    VALUES ( '${insertedCity}' , '${insertedCountry}' , '${insertedCountryCode}' )`;
 
     db.run(addCitiesToDB, (err) => {
         if (err) {
@@ -66,11 +68,13 @@ function insertData(insertedCity, insertedCountry) {
 function selectData() {
 
     db.all("SELECT * from cities", (error, rows) => {
-        if (error)
+        if (error) {
             console.log("Unable to Get Data");
-        else
-            showCitiesInDropdownList(rows);
-
+        }
+        else {
+            rowsFromDB = rows;
+            showCitiesInDropdownList();
+        }
     });
 }
 
